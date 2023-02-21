@@ -4,9 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Working with the DOM</title>
+    <style>
+
+        .box{
+            width: 100px;
+            height: 100px;
+            border: solid 5px;
+            margin: 0;
+            transition: all .4s ease-out;
+        }
+
+        body{
+            border: 5px solid;
+            height: 100vh;
+            transform: translateX(25px), translateY(20px);
+        }
+
+    </style>
 </head>
 <body>
+
+    <button id="makeDiv">Make Div</button>
+    <div class="box">box</div>
+
+
+    <script>
+
+        //const makeDiv = document.getElementById('makeDiv');
+        
+        document.body.addEventListener('click', checkLoc);
+
+        function checkLoc(e){
+            const box = document.querySelector('.box');
+
+            //box.style.transform = translate(e.clientX + "px", e.clientY + "px");
+            console.log(box.style.transform);  
+
+            box.style.transform = `translateY(${e.clientY - 50}px)`;
+            box.style.transform += `translateX(${e.clientX - 50}px)`;
+
+            console.log(e.clientX, e.clientY);
+        }
+
+    </script>
     
 </body>
 </html>
+
